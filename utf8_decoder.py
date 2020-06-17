@@ -63,7 +63,12 @@ def Decode_UTF8_URL(Web_Heb_Url):
 
     #now i need to join the unicode url to base website url it to a link
     final_Link =  base_Url + str(new_Url_Utf8)
-    return final_Link
+
+    #Remove the unexplainable %B
+    return_url = final_Link[:-2]
+
+
+    return return_url
 
 """
 example_url = "<loc>http://www.ask-tal.co.il/קניית-דירה-התהליך-המשפטי</loc>"

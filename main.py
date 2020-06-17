@@ -16,6 +16,7 @@ import os
 import urllib
 import utf8_decoder as decoder
 import webbrowser
+import get_heb_url as heb_extractor
 
 
 
@@ -33,20 +34,30 @@ file = urllib.request.urlopen(url)
 
 
 
-
-#Run on file and isolate all the the Links
+#Run on sitemap and isolate all the the Links
 for line in file:
     decoded_line = line.decode("utf-8")
     if decoded_line.find('loc') != -1:
         #Call the decoder function and ready the links
-        url = decoder.Decode_UTF8_URL(decoded_line)
-        trim_url = url[:-2]
-        print(trim_url)
+        browser_url = decoder.Decode_UTF8_URL(decoded_line)
+        heb_url = heb_extractor.Extract_Hebrew_Url(browser_url)
+
+
+        #Page_builder_funcrtion(heb_url,browser_url)
+
+
+
+        #print(browser_url)
+        #print(heb_url)
         #webbrowser.open(trim_url, new=2)
-        ###Enter the Trim URL to a Data Structer###
 
+        ###***Calling the Page Builder Function OR Enter the both URLs to a Data Structer***###
 
+###***Decode_UTF8_URL function - There is a Bug with the calularioe URL
+### that turn to capitlize / check if its occur in other URLS***
 
 
 #After the url are in a data structer, script should run on links and build a HTML file with the content
-#I need for Google Hugo
+#that is  needed for Google Hugo
+
+
