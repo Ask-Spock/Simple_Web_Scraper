@@ -4,7 +4,7 @@ What the builder should do :
 0.Create a website folder.
 
 1. Get a ready to parse url.
-1.1 Create the file name 
+1.1 Create the file name
 
 2.Using beautiful soap open the html page.
 
@@ -38,11 +38,21 @@ import os
 import sys
 import shutil
 
+def Moudle_init():
+    print(" Builder Moudle is Activated \n")
+    #The script need a new working folder every time its run so i delete the previes
+    #and create a new one.
+    deleteFolder()
+    createFolder()
 
-sampleUrl = "http://www.ask-tal.co.il/%D7%94%D7%90%D7%9D-%D7%94%D7%A4%D7%A7%D7%A2%D7%94-%D7%A0%D7%97%D7%A9%D7%91%D7%AA-%D7%90%D7%99%D7%A8%D7%95%D7%A2-%D7%9E%D7%A1"
 
-#Directory Name
-dirName = 'Ask-Tal'
+
+    #Change path to  the new dirctory
+    os.chdir('./Ask-Tal')
+    path = os.getcwd()
+    print("The new path is: " + path)
+
+
 
 
 #Create a folder for the website files
@@ -64,20 +74,36 @@ def deleteFolder():
         print ("Error: %s - %s." % (e.filename, e.strerror))
 
 
+#testing Url name
+Heb_Url = "מס-רכישה"
+
+sampleUrl = "http://www.ask-tal.co.il/%D7%94%D7%90%D7%9D-%D7%94%D7%A4%D7%A7%D7%A2%D7%94-%D7%A0%D7%97%D7%A9%D7%91%D7%AA-%D7%90%D7%99%D7%A8%D7%95%D7%A2-%D7%9E%D7%A1"
+
+#Directory Name
+dirName = 'Ask-Tal'
 
 
 
 
-def main():
-
-    #The script need a new working folder every time its run so i delete the previes
-    #and create a new one.
-    deleteFolder()
-    createFolder()
+def Page_Builder(Heb_Url):
 
     #Create  file name from the URL
-    print(sampleUrl.encode())
+    print("This is the Hebrew name of the writing file: " + Heb_Url)
+    #f = open(Heb_Url, "w")
+
+    #checking if the path changed
+    path = os.getcwd()
+    print("The current path is: " + path)
+
+    #close the file after the data has been writen
+    #f.close()
+
+
 
 
 if __name__ == '__main__':
-    main()
+
+    Page_Builder(Heb_Url + ".html" )
+
+
+Moudle_init()

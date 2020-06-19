@@ -5,9 +5,7 @@ Work-Summery
 
 1.get website maplink
 
-2.decode the links and enter them to a data structuer
-
-3.run on the data structuer and build an HTML file from each unit of the Data strucuer
+2.run on the links and activating a function that will build an HTML file from each  one.
 
 ---------------------------------------------
 """
@@ -17,6 +15,8 @@ import urllib
 import utf8_decoder as decoder
 import webbrowser
 import get_heb_url as heb_extractor
+import page_builder as builder
+
 
 
 
@@ -44,6 +44,8 @@ for line in file:
 
 
         #Page_builder_funcrtion(heb_url,browser_url)
+        builder.Page_Builder(heb_url)
+
 
 
 

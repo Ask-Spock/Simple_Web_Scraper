@@ -30,19 +30,27 @@ def Extract_Hebrew_Url(Web_Heb_Url):
     heb_url = urllib.parse.unquote(trim_url)
 
     #oin the unicode url to base website url it to a link
-    final_Link =  base_Url + str(heb_url)
+    #final_Link =  base_Url + str(heb_url)
 
+    final_Link = str(heb_url)
 
+    #Remove the unexplainable %B
+    #final_Link = final_Link[:-2]
 
-    #print(final_Link)
-
-    #webbrowser.open(sample_url, new=2)
-
+    print("Inside Hebrew:" + final_Link)
 
     return final_Link
 
 
-""" Internal Testing
-sample_url = "http://www.ask-tal.co.il/%D7%9E%D7%A1-%D7%A8%D7%9B%D7%99%D7%A9%D7%94%N"
-Extract_Hebrew_Url(sample_url)
-"""
+
+
+if __name__ == '__main__':
+
+    sample_heb_url = "http://www.ask-tal.co.il/מס-רכישה"
+    print("Internal Testing")
+    sample_url = "http://www.ask-tal.co.il/%D7%9E%D7%A1-%D7%A8%D7%9B%D7%99%D7%A9%D7%94%N"
+    test_url = Extract_Hebrew_Url(sample_url)
+    #print(test_url)
+    webbrowser.open(test_url, new=2)
+
+
