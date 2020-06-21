@@ -1,4 +1,12 @@
+"""
+This function get the URL from sitemap and return the hebrew part
 
+Input:
+
+Output:
+
+
+"""
 import urllib.parse
 import webbrowser
 
@@ -21,23 +29,23 @@ def Extract_Hebrew_Url(Web_Heb_Url):
     Web_Heb_Url = Web_Heb_Url.replace(" ", "")
 
     #Cutting the Base Url to get only the Hebrew Part
-    tempHebUrl = Web_Heb_Url.replace(base_Url,'')
+    final_Link = Web_Heb_Url.replace(base_Url,'')
 
     #Remove the unexplainable %B
-    trim_url = tempHebUrl[:-2]
+    #trim_url = tempHebUrl[:-2]
 
     #Change the Url back to Hebrew
-    heb_url = urllib.parse.unquote(trim_url)
+    #heb_url = urllib.parse.unquote(trim_url)
 
     #oin the unicode url to base website url it to a link
     #final_Link =  base_Url + str(heb_url)
 
-    final_Link = str(heb_url)
+    #final_Link = str(heb_url)
 
     #Remove the unexplainable %B
     #final_Link = final_Link[:-2]
 
-    print("Inside Hebrew:" + final_Link)
+    #print("Inside Hebrew:" + final_Link)
 
     return final_Link
 

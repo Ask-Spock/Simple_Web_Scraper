@@ -37,13 +37,30 @@ file = urllib.request.urlopen(url)
 #Run on sitemap and isolate all the the Links
 for line in file:
     decoded_line = line.decode("utf-8")
+    # * ! if there is a <loc> tag in the line extracting data function will be activated.
     if decoded_line.find('loc') != -1:
-        #Call the decoder function and ready the links
+        
+        #This is the Raw line from the website map: <loc>http://www.ask-tal.co.il/calc/חישוב-החזר-חודשי</loc>
+        #print(decoded_line)
+        
+        
+        #Call the decoder function - get the url that python can handle
+        #input: <loc>http://www.ask-tal.co.il/המשכנתא</loc>/
+        #output: "http://www.ask-tal.co.il/%D7%A7%D7%A0%D7%99%D7%99%D7%AA-%D7%93%D7%99%D7%A8%D7%94
+        # This Url can be open by browser in order to extract data from the page in next
+        
+        #function
         browser_url = decoder.Decode_UTF8_URL(decoded_line)
-        heb_url = heb_extractor.Extract_Hebrew_Url(browser_url)
-
-
+        #print(browser_url)
+        
+        #extract the Hebrew Url so a file with this name can be created.
+        heb_url = heb_extractor.Extract_Hebrew_Url(decoded_line)
+        #print(heb_url)
+        #This is the page builder function that should get two argument the heb string which will be
+        #the html name and the url from it the data will be extracted.
         #Page_builder_funcrtion(heb_url,browser_url)
+        
+        #This is a temppry function just to create the files in the folders
         builder.Page_Builder(heb_url)
 
 
