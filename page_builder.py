@@ -36,6 +36,8 @@ import webbrowser
 import os
 import sys
 import shutil
+from bs4 import BeautifulSoup
+
 
 folderName = "Ask-Tal"
 
@@ -82,7 +84,7 @@ def deleteFolder():
 
 
 
-def Page_Builder(Heb_Url):
+def Page_Builder(Heb_Url,Soup_Url):
 
     #Create  file name from the URL
     #print("This is the Hebrew name of the writing file: " + Heb_Url)
@@ -121,17 +123,30 @@ def Page_Builder(Heb_Url):
 
 
     
-    f = open(Heb_Url, "w")
+    #f = open(Heb_Url, "w")
 
     #checking if the path changed
     #path = os.getcwd()
     #print("The  path in Page_Builder is : " + path)
 
-    #scraping content to the html files
+    """
+    scraping content to the html files:
+    1.Title
+
+    2.discreoption.
+    3.H1
+    4.page content.
+    
+    """
+
+    #Scrap Title
+    #soup = BeautifulSoup(response.body, 'html.parser')
+    print(Soup_Url)
+ 
 
 
     #close the file after the data has been writen
-    f.close()
+    #f.close()
     
 
 
@@ -149,7 +164,7 @@ if __name__ == '__main__':
     sampleUrl = "http://www.ask-tal.co.il/%D7%91%D7%9C%D7%A2%D7%93%D7%99%D7%95%D7%AA"
 
 
-    Page_Builder(page_Heb_name_Url + ".html" )
+    #Page_Builder(page_Heb_name_Url + ".html" )
 
 """
 

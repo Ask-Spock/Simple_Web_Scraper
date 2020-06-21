@@ -61,7 +61,7 @@ for line in file:
         #Page_builder_funcrtion(heb_url,browser_url)
         
         #This is a temppry function just to create the files in the folders
-        builder.Page_Builder(heb_url)
+        builder.Page_Builder(heb_url,browser_url)
 
 
 
